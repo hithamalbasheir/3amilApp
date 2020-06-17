@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">3amil</string>
+    <string name="hint_text">shit</string>
+    <string name="worker_type">داير عامل شنو ؟</string>
+    <string name="where_u_live">السكن :</string>
+    <string name="confirm">تأكيد</string>
+    <string name="empName">Employee Name</string>
+    <string name="empNum">Employee  number</string>
+</resources>

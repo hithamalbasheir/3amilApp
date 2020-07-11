@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.a3amil.Model.EmployeeModel;
 import com.example.a3amil.R;
-import com.example.a3amil.Model.RetroModel;
 
 import java.util.ArrayList;
 
@@ -21,18 +20,16 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private View view;
     private CardView cardView;
     private RecyclerView.ViewHolder holder;
-    private ArrayList<EmployeeModel> employees;
-    private ArrayList<RetroModel> retros = new ArrayList<>();
+    private ArrayList<EmployeeModel> employees = new ArrayList<>();
     private Context context;
     private EmployeeModel emp;
-    private RetroModel retro;
 
     public RecyclerViewAdapter(Context context) {
         this.context = context;
     }
 
-    public void setRetros(ArrayList<RetroModel> retros) {
-        this.retros = retros;
+    public void setEmployees(ArrayList<EmployeeModel> employees) {
+        this.employees = employees;
         notifyDataSetChanged();
     }
 
@@ -47,14 +44,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        retro = retros.get(position);
-        holder.empName.setText(retro.getTitle());
-        holder.empNum.setText((retro.getId()+ ""));
+        emp = employees.get(position);
+        holder.empName.setText(emp.getEmpName());
+        holder.empNum.setText((emp.getEmpNum()));
     }
 
     @Override
     public int getItemCount() {
-        return retros.size();
+        return employees.size();
     }
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         TextView empName,empNum;
@@ -69,9 +66,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         @Override
         public void onClick(View v) {
-            Intent detailsIntent = new Intent(context, EmpDetailsActivity.class);
+//            Intent detailsIntent = new Intent(context, EmpDetailsActivity.class);
 //            detailsIntent.putExtra("ID", String.valueOf(emp));
-            context.startActivity(detailsIntent);
+//            context.startActivity(detailsIntent);
         }
     }
 }

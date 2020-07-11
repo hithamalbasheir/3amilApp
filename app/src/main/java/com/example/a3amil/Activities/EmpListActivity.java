@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
-import com.example.a3amil.Model.RetroModel;
 import com.example.a3amil.ViewModel.EmployeeViewModel;
 import com.example.a3amil.Model.EmployeeModel;
 import com.example.a3amil.R;
@@ -29,11 +28,12 @@ public class EmpListActivity extends AppCompatActivity {
         adapter = new RecyclerViewAdapter(this);
         recyclerView.setAdapter(adapter);
         viewModel = new ViewModelProvider(this).get(EmployeeViewModel.class);
+        viewModel.getToken();
         viewModel.getModels();
-        viewModel.liveData.observe(this, new Observer<List<RetroModel>>() {
+        viewModel.liveData.observe(this, new Observer<List<EmployeeModel>>() {
             @Override
-            public void onChanged(List<RetroModel> retroModels) {
-                adapter.setRetros((ArrayList<RetroModel>) retroModels);
+            public void onChanged(List<EmployeeModel> empModels) {
+                adapter.setEmployees((ArrayList<EmployeeModel>) empModels);
             }
         });
     }

@@ -1,39 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="wrap_content">
+
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="18dp"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/cardView"
+        android:padding="8dp"
         android:paddingStart="8dp"
         android:paddingLeft="8dp"
         android:paddingTop="8dp"
         android:paddingEnd="8dp"
-        android:paddingRight="8dp">
+        android:paddingRight="8dp"
+        android:layout_margin="@dimen/spacing_medium"
+        app:cardCornerRadius="45dp">
 
         <TextView
             android:id="@+id/empName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
+            android:layout_margin="@dimen/spacing_large"
             android:text="@string/empName"
             android:padding="18dp"
             android:paddingLeft="4dp"
             android:gravity="right"
             android:layout_gravity="right"
+            android:textColor="#000000"
             android:textSize="24sp" />
 
-        <TextView
-            android:id="@+id/empNumber"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:layout_margin="8dp"
-            android:padding="8dp"
-            android:paddingTop="8dp"
-            android:text="@string/empNum"
-            android:textSize="18sp" />
-    </androidx.cardview.widget.CardView>
-</RelativeLayout>
+    <TextView
+        android:id="@+id/empNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_margin="18dp"
+        android:autoLink="phone"
+        android:padding="18dp"
+        android:paddingTop="8dp"
+        android:text="@string/empNum"
+        android:textColor="#000000"
+        android:textSize="24sp" />
+</androidx.cardview.widget.CardView>

@@ -1,12 +1,18 @@
 package com.example.a3amil.Model;
 
-public class EmployeeModel {
-    private String empName;
-    private String empAddress;
-    private String empJob;
-    private String empNum;
+import com.google.gson.annotations.SerializedName;
 
-    // TODO: 6/17/20  
+public class EmployeeModel {
+    @SerializedName("id")
+    private int id;
+    @SerializedName("name")
+    private String empName;
+    @SerializedName("address")
+    private String empAddress;
+    @SerializedName("job")
+    private String empJob;
+    @SerializedName("number")
+    private String empNum;
     public EmployeeModel(String empName, String empAddress, String empJob, String empNum) {
         this.empName = empName;
         this.empAddress = empAddress;

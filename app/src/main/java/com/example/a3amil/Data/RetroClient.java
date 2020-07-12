@@ -6,6 +6,8 @@ import com.example.a3amil.Model.EmployeeModel;
 
 import java.util.List;
 
+import hu.akarnokd.rxjava3.retrofit.RxJava3CallAdapterFactory;
+import io.reactivex.rxjava3.core.Observable;
 import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Retrofit;
@@ -28,6 +30,7 @@ public class RetroClient {
                 .baseUrl(BASE_URL)
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
                 .build();
         apiInterface = retrofit.create(ApiInterface.class);
     }
@@ -37,10 +40,10 @@ public class RetroClient {
             INSTANCE = new RetroClient(context);
         return INSTANCE;
     }
-    public Call<List<EmployeeModel>> getData(){
+    public Observable<List<EmployeeModel>> getData(){
         return apiInterface.getEmployee();
     }
-    public Call<AuthenticationResponse> getToken(AuthenticationRequest request){
+    public Observable<AuthenticationResponse> getToken(AuthenticationRequest request){
         return apiInterface.getToken(request);
     }
 

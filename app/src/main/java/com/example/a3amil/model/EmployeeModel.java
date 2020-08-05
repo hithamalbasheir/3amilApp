@@ -1,4 +1,4 @@
-package com.example.a3amil.Model;
+package com.example.a3amil.model;
 
 import com.google.gson.annotations.SerializedName;
 

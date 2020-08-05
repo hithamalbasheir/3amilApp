@@ -6,4 +6,5 @@
     <string name="empName">Employee Name</string>
     <string name="emp_name">Item Title</string>
     <string name="empNum">employee number</string>
+    <string name="onBackPressed">Press back again to exit :)</string>
 </resources>

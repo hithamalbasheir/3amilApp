@@ -24,7 +24,7 @@ public class RetroClient {
     private RetroClient(Context context) {
         this.context = context;
         OkHttpClient client = initOkHttp(context);
-        String BASE_URL = "https://hithambasheir.pythonanywhere.com/";
+        String BASE_URL = "https://website.com/";
         Retrofit retrofit = new Retrofit.Builder( )
                 .baseUrl(BASE_URL)
                 .client(client)

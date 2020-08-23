@@ -33,7 +33,7 @@ public class EmployeeViewModel extends AndroidViewModel {
     private CompositeDisposable disposable = new CompositeDisposable();
     private void getToken(){
         Single<AuthenticationResponse> tokenObservable = RetroClient.getINSTANCE(context)
-                .getToken(new AuthenticationRequest("hithambasheir","Amil(1.0)"))
+                .getToken(new AuthenticationRequest("",""))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
         disposable.add(tokenObservable.subscribe(o -> {token = o;sessionManager.saveAuthToken(token.getAccess());

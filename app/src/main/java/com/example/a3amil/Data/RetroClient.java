@@ -2,6 +2,7 @@ package com.example.a3amil.Data;
 
 import android.content.Context;
 
+import com.example.a3amil.Private.Credentials;
 import com.example.a3amil.model.EmployeeModel;
 
 import java.util.List;
@@ -24,7 +25,8 @@ public class RetroClient {
     private RetroClient(Context context) {
         this.context = context;
         OkHttpClient client = initOkHttp(context);
-        String BASE_URL = "https://website.com/";
+        Credentials credentials = new Credentials();
+        String BASE_URL = credentials.getBASE_URL();
         Retrofit retrofit = new Retrofit.Builder( )
                 .baseUrl(BASE_URL)
                 .client(client)

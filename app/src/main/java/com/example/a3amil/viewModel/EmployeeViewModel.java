@@ -12,6 +12,7 @@ import com.example.a3amil.Data.AuthenticationRequest;
 import com.example.a3amil.Data.AuthenticationResponse;
 import com.example.a3amil.Data.RetroClient;
 import com.example.a3amil.Data.SessionManager;
+import com.example.a3amil.Private.Credentials;
 import com.example.a3amil.model.EmployeeModel;
 
 import java.util.List;
@@ -32,8 +33,11 @@ public class EmployeeViewModel extends AndroidViewModel {
     }
     private CompositeDisposable disposable = new CompositeDisposable();
     private void getToken(){
+        Credentials credentials = new Credentials();
+        String username = credentials.getUsername();
+        String password = credentials.getPassword();
         Single<AuthenticationResponse> tokenObservable = RetroClient.getINSTANCE(context)
-                .getToken(new AuthenticationRequest("",""))
+                .getToken(new AuthenticationRequest(username,password))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
         disposable.add(tokenObservable.subscribe(o -> {token = o;sessionManager.saveAuthToken(token.getAccess());

@@ -25,7 +25,7 @@ public class BasicAuthInterceptor implements Interceptor {
         String token = manager.fetchAuthToken();
         Request authenticatedRequest = request
                 .newBuilder()
-                .header("Authorization", " "+token)
+                .header("Authorization", "Bearer "+token)
                 .build();
         return chain.proceed(authenticatedRequest);
     }
